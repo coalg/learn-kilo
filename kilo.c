@@ -33,6 +33,10 @@ void enableRawMode() {
   if (tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw) == -1) die("tcsetattr");
 }
 
+void editorRefreshScreen() {
+  write(STDIN_FILENO, "\x1b[2J", 4);
+}
+
 char editorReadKey() {
   int nread;
   char c;
@@ -56,6 +60,7 @@ int main() {
   enableRawMode();
 
   while(1) {
+    editorRefreshScreen();
     editorProcessKeyPress();
   }
   return 0;
