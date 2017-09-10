@@ -34,7 +34,7 @@ void enableRawMode() {
 }
 
 void editorRefreshScreen() {
-  write(STDIN_FILENO, "\x1b[2J", 4);
+  write(STDOUT_FILENO, "\x1b[2J", 4);
 }
 
 char editorReadKey() {
