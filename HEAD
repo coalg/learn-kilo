@@ -1,0 +1,3 @@
+fatal: ambiguous argument 'HEAD': both revision and filename
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
