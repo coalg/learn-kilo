@@ -44,25 +44,6 @@ void enableRawMode() {
   if (tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw) == -1) die("tcsetattr");
 }
 
-void editorDrawRows() {
-  int y;
-  for (y = 0; y < E.screenrows; y++) {
-    write(STDOUT_FILENO, "~", 3);
-
-    if (y < E.screenrows - 1) {
-      write(STDOUT_FILENO, "\r\n", 2);
-    }
-  }
-}
-
-void editorRefreshScreen() {
-  write(STDOUT_FILENO, "\x1b[2J", 4);
-  write(STDOUT_FILENO, "\x1b[H", 3);
-
-  editorDrawRows();
-  write(STDOUT_FILENO, "\x1b[H", 3);
-}
-
 char editorReadKey() {
   int nread;
   char c;
@@ -119,6 +100,32 @@ void abAppend(struct abuf *ab, const char *s, int len) {
 
 void abFree(struct abuf *ab) {
   free(ab->b);
+}
+
+void editorDrawRows(struct abuf *ab) {
+  int y;
+  for (y = 0; y < E.screenrows; y++) {
+    write(STDOUT_FILENO, "~", 3);
+    abAppend(ab, "~", 1);
+
+    if (y < E.screenrows - 1) {
+      write(STDOUT_FILENO, "\r\n", 2);
+      abAppend(ab, "\r\n", 2);
+    }
+  }
+}
+
+void editorRefreshScreen() {
+  struct abuf ab = ABUF_INIT;
+  abAppend(&ab, "\x1b[2J", 4);
+  abAppend(&ab, "\x1b[H", 3);
+
+  editorDrawRows(&ab);
+
+  abAppend(&ab, "\x1b[H", 3);
+
+  write(STDOUT_FILENO, ab.b, ab.len);
+  abFree(&ab);
 }
 
 void editorProcessKeyPress() {
