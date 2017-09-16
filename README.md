@@ -10,7 +10,8 @@ C言語で書かれており、コードは1000行程度、教育的ながら構
 
 もっとも、すでに解説があるため、それらを参照しながらやっていきます。楽に楽を重ねていくスタイルです。
 
-> [C言語1000行以下のエディタ「Kilo」を理解する (1) シンプルな内部構造 | マイナビニュース](http://news.mynavi.jp/series/kilo/001/)
->
-> [Build Your Own Text Editor](http://viewsourcecode.org/snaptoken/kilo/)
+本稿は[Build Your Own Text Editor](http://viewsourcecode.org/snaptoken/kilo)の翻訳形式となっています。ところどころ原文飛ばしたり文章をまる切り替えたりしていますが、技術的な意味は捉え損ねないようにやっているつもりです。
 
+ソースコードのライセンスは[BSD 2-clause](https://github.com/antirez/kilo/blob/master/LICENSE)であり、Build Your Own Text Editorのライセンスは[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)となっています。翻訳のライセンスはあとで決めます。今のところはAll rights reservedです。
+
+kiloには日本語の[解説も存在します](http://news.mynavi.jp/series/kilo/001/)。これについても適宜参照して文章を補完できればと思っています。
