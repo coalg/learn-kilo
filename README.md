@@ -10,7 +10,7 @@ C言語で書かれており、コードは1000行程度、教育的ながら構
 
 もっとも、すでに解説があるため、それらを参照しながらやっていきます。楽に楽を重ねていくスタイルです。
 
-本稿は[Build Your Own Text Editor](http://viewsourcecode.org/snaptoken/kilo)の翻訳形式となっています。ところどころ原文飛ばしたり文章をまる切り替えたりしていますが、技術的な意味は捉え損ねないようにやっているつもりです。
+本稿は[Build Your Own Text Editor](http://viewsourcecode.org/snaptoken/kilo)の翻訳形式となっています。ところどころ原文飛ばしたり、文章をかなり変更したりしていますが、技術的な意味は捉え損ねないようにやっているつもりです。
 
 ソースコードのライセンスは[BSD 2-clause](https://github.com/antirez/kilo/blob/master/LICENSE)であり、Build Your Own Text Editorのライセンスは[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)となっています。翻訳のライセンスはあとで決めます。今のところはAll rights reservedです。
 
