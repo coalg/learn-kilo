@@ -12,6 +12,7 @@
 #define CTRL_KEY(k) ((k) & 0x1f)
 
 struct editorConfig {
+  int cx, cy;
   int screenrows;
   int screencols;
   struct termios orig_termios;
@@ -158,6 +159,8 @@ void editorProcessKeyPress() {
 }
 
 void initEditor() {
+  E.cx = 0;
+  E.cy = 0;
   if (getWindowSize(&E.screenrows, &E.screencols) == -1) die("getWindowSize");
 }
 
