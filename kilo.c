@@ -11,6 +11,13 @@
 
 #define CTRL_KEY(k) ((k) & 0x1f)
 
+enum editorKey {
+  ARROW_LEFT = 'h',
+  ARROW_RIGHT = 'l',
+  ARROW_UP = 'k',
+  ARROW_DOWN = 'j'
+};
+
 struct editorConfig {
   int cx, cy;
   int screenrows;
@@ -62,10 +69,10 @@ char editorReadKey() {
 
     if (seq[0] == '[') {
       switch (seq[1]) {
-        case 'A': return 'k';
-        case 'B': return 'j';
-        case 'C': return 'l';
-        case 'D': return 'h';
+        case 'A': return ARROW_UP;
+        case 'B': return ARROW_DOWN;
+        case 'C': return ARROW_RIGHT;
+        case 'D': return ARROW_LEFT;
       }
     }
 
@@ -195,10 +202,10 @@ void editorProcessKeyPress() {
       exit(0);
       break;
 
-    case 'h':
-    case 'l':
-    case 'j':
-    case 'k':
+    case ARROW_UP:
+    case ARROW_DOWN:
+    case ARROW_LEFT:
+    case ARROW_RIGHT:
       editorMoveCursor(c);
       break;
   }
