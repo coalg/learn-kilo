@@ -212,7 +212,7 @@ void editorAppendRow(char *s, size_t len) {
   E.numrows++;
 }
 
-void editorInsertChar(erow *row, int at, int c) {
+void editorRowInsertChar(erow *row, int at, int c) {
   if (at < 0 || at > row->size) at = row->size;
   row->chars = realloc(row->chars, row->size + 2);
   memmove(&row->chars[at + 1], &row->chars[at], row->size - at + 1);
