@@ -469,6 +469,10 @@ void editorProcessKeyPress() {
       exit(0);
       break;
 
+    case CTRL_KEY('s'):
+      editorSave();
+      break;
+
     case HOME_KEY:
       E.cx = 0;
       break;
